@@ -1,0 +1,22 @@
+name       : kexec-tools
+version    : 2.0.15
+release    : 1
+license    : GPL-2.0
+source     :
+    - https://www.kernel.org/pub/linux/utils/kernel/kexec/kexec-tools-2.0.15.tar.xz : 899b7b861431eb51886d0c12866e91b036228244d35a5fb04762dd1a3c0194e7
+component  : system.utils
+summary    : Load one kernel from another
+description: |
+    /sbin/kexec is a user space utility for loading another kernel
+    and asking the currently running kernel to do something with it.
+    A currently running kernel may be asked to start the loaded
+    kernel on reboot, or to start the loaded kernel after it panics.
+
+    The panic case is useful for having an intact kernel for writing
+    crash dumps.  But other uses may be imagined.
+setup      : |
+    %configure
+build      : |
+    %make
+install    : |
+    %make_install
