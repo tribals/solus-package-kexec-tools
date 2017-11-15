@@ -1,6 +1,6 @@
 name       : kexec-tools
 version    : 2.0.15
-release    : 1
+release    : 2
 license    : GPL-2.0
 source     :
     - https://www.kernel.org/pub/linux/utils/kernel/kexec/kexec-tools-2.0.15.tar.xz : 899b7b861431eb51886d0c12866e91b036228244d35a5fb04762dd1a3c0194e7
@@ -20,3 +20,4 @@ build      : |
     %make
 install    : |
     %make_install
+    install -m 644 -Dt $installdir/%libdir%/systemd/system $pkgfiles/kexec-load@.service

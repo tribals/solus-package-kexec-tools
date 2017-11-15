@@ -1,0 +1,13 @@
+[Unit]
+Description=load %i kernel into the current kernel
+Documentation=man:kexec(8)
+DefaultDependencies=no
+Before=shutdown.target umount.target final.target
+
+[Service]
+Type=oneshot
+# always loads current default
+ExecStart=/usr/sbin/kexec --load /usr/lib/kernel/$i --initrd /usr/lib/kernel/initrd-%i --reuse-cmdline
+
+[Install]
+WantedBy=kexec.target
